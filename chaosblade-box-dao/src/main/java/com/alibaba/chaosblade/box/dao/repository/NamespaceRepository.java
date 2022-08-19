@@ -70,8 +70,8 @@ public class NamespaceRepository {
         } else {
             namespaces.stream().filter(namespaceDO -> DELETED_FLAG.equals(namespaceDO.getIsDelete())).forEach(
                 namespaceDO -> {
-                    namespaceDO.setIsDelete(0);
-                    namespaceMapper.updateById(namespace);
+                    namespaceDO.setIsDelete(NOT_DELETE_FLAG);
+                    namespaceMapper.updateById(namespaceDO);
                 });
             return true;
         }
